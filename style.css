@@ -1,0 +1,88 @@
+body {
+    background: #777;
+    overflow: hidden;
+}
+
+.wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    overflow: hidden;
+    width: 50vw;
+    height: 50vw;
+    animation: expand 6s infinite;
+    animation-timing-function: linear;
+}
+
+.wrap .inner {
+    background-size: cover;
+    background-position: center;
+    width: 50vw;
+    height: 50vh;
+    min-width: 50vw;
+    min-height: 50vw;
+    animation: center 6s infinite;
+    animation-timing-function: linear;
+}
+
+.wrap:nth-child(2),
+.wrap:nth-child(2) .inner {
+    animation-delay: -1.5s;
+}
+
+.wrap:nth-child(3),
+.wrap:nth-child(3) .inner {
+    animation-delay: -3s;
+}
+
+.wrap:nth-child(4),
+.wrap:nth-child(4) .inner {
+    animation-delay: -4.5s;
+}
+
+@keyframes expand {
+    0% {
+        width: 0;
+        height: 0;
+        z-index: 4;
+      }
+      49% {
+        width: 50vw;
+        height: 50vw;
+        z-index: 3;
+      }
+      50% {
+        width: 50vw;
+        height: 50vw;
+        z-index: 2;
+      }
+      75% {
+        width: 50vw;
+        height: 50vw;
+        z-index: -1;
+      }
+      76% {
+        width: 0vw;
+        height: 0vw;
+        z-index: -1;
+      }
+      100% {
+        width: 0vw;
+        height: 0vw;
+        z-index: 5;
+      }
+}
+
+@keyframes center {
+    0% {
+        transform: translateX(-50%) translateY(-50%);
+    }
+    49% {
+        transform: translateX(0%) translateY(0%);
+    }
+    100% {
+        transform: translateX(0%) translateY(0%);
+    }
+}
+
